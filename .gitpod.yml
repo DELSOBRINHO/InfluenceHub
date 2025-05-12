@@ -1,5 +1,18 @@
+vscode:
+  extensions:
+    - sourcegraph.cody-ai
+
 tasks:
-  - init: |
-      echo 'TODO: build project'
-    command: |
-      echo 'TODO: start app'
+  - name: Configurar persistência do Cody
+    command: mkdir -p /workspace/.cody-history
+
+gitConfig:
+  alias.hist: log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+
+ports:
+  - port: 3000
+    onOpen: open-preview
+
+additionalRepositories:
+  - url: https://github.com/sourcegraph/cody
+    checkoutLocation: .cody-source
