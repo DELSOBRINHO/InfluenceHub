@@ -1,8 +1,19 @@
 vscode:
   extensions:
     - sourcegraph.cody-ai
+    - dbaeumer.vscode-eslint
+    - bradlc.vscode-tailwindcss
+    - esbenp.prettier-vscode
 
 tasks:
+  - name: Configurar ambiente de desenvolvimento
+    init: |
+      cd influencehub
+      npm install
+    command: |
+      cd influencehub
+      npm run dev
+
   - name: Configurar persistência do Cody
     command: mkdir -p /workspace/.cody-history
 
@@ -10,8 +21,9 @@ gitConfig:
   alias.hist: log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 
 ports:
-  - port: 3000
+  - port: 5173
     onOpen: open-preview
+    visibility: public
 
 additionalRepositories:
   - url: https://github.com/sourcegraph/cody
