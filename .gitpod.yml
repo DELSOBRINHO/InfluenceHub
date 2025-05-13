@@ -5,6 +5,8 @@ vscode:
     - bradlc.vscode-tailwindcss
     - esbenp.prettier-vscode
 
+    - google.geminicodeassist
+
 tasks:
   - name: Configurar ambiente de desenvolvimento
     init: |

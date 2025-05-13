@@ -1,13 +1,5 @@
 import React from 'react';
-
-interface ContentSuggestion {
-  id: string;
-  text: string;
-  hashtags?: string[];
-  platform: string;
-  tone: string;
-  estimatedEngagement: number;
-}
+import { ContentSuggestion } from '../../types/content';
 
 interface ContentSuggestionCardProps {
   suggestion: ContentSuggestion;

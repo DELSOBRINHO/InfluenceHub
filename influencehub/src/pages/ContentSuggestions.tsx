@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 import { ContentSuggestionGenerator } from '../components/content/ContentSuggestionGenerator';
 import { useNavigate } from 'react-router-dom';
-
-interface ContentSuggestion {
-  id: string;
-  text: string;
-  hashtags?: string[];
-  platform: string;
-  tone: string;
-  estimatedEngagement: number;
-}
+import { ContentSuggestion } from '../types/content';
 
 const ContentSuggestionsPage: React.FC = () => {
   const navigate = useNavigate();

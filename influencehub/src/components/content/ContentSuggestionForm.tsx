@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
+import { ContentSuggestionRequest } from '../../types/content';
 
 interface ContentSuggestionFormProps {
-  onSubmit: (request: {
-    platform: string;
-    topic?: string;
-    tone?: string;
-    length?: 'short' | 'medium' | 'long';
-    includeHashtags?: boolean;
-  }) => void;
+  onSubmit: (request: ContentSuggestionRequest) => void;
   loading: boolean;
 }
 

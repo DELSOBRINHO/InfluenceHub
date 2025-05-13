@@ -1,22 +1,6 @@
 import { useState } from 'react';
 import { aiService } from '../services/aiService';
-
-interface ContentSuggestionRequest {
-  platform: string;
-  topic?: string;
-  tone?: string;
-  length?: 'short' | 'medium' | 'long';
-  includeHashtags?: boolean;
-}
-
-interface ContentSuggestion {
-  id: string;
-  text: string;
-  hashtags?: string[];
-  platform: string;
-  tone: string;
-  estimatedEngagement: number;
-}
+import { ContentSuggestionRequest, ContentSuggestion } from '../types/content';
 
 export const useContentSuggestions = () => {
   const [suggestions, setSuggestions] = useState<ContentSuggestion[]>([]);

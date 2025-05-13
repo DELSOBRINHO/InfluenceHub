@@ -2,15 +2,7 @@ import React, { useState } from 'react';
 import { ContentSuggestionForm } from './ContentSuggestionForm';
 import { ContentSuggestionCard } from './ContentSuggestionCard';
 import { useContentSuggestions } from '../../hooks/useContentSuggestions';
-
-interface ContentSuggestion {
-  id: string;
-  text: string;
-  hashtags?: string[];
-  platform: string;
-  tone: string;
-  estimatedEngagement: number;
-}
+import { ContentSuggestion, ContentSuggestionRequest } from '../../types/content';
 
 interface ContentSuggestionGeneratorProps {
   onSelectSuggestion: (suggestion: ContentSuggestion) => void;
@@ -21,13 +13,7 @@ export const ContentSuggestionGenerator: React.FC<ContentSuggestionGeneratorProp
 }) => {
   const { suggestions, loading, error, generateSuggestions } = useContentSuggestions();
   
-  const handleSubmit = async (request: {
-    platform: string;
-    topic?: string;
-    tone?: string;
-    length?: 'short' | 'medium' | 'long';
-    includeHashtags?: boolean;
-  }) => {
+  const handleSubmit = async (request: ContentSuggestionRequest) => {
     await generateSuggestions(request);
   };
   

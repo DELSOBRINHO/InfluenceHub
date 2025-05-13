@@ -1,21 +1,6 @@
 import axios from 'axios';
 
-interface ContentSuggestionRequest {
-  platform: string;
-  topic?: string;
-  tone?: string;
-  length?: 'short' | 'medium' | 'long';
-  includeHashtags?: boolean;
-}
-
-interface ContentSuggestion {
-  id: string;
-  text: string;
-  hashtags?: string[];
-  platform: string;
-  tone: string;
-  estimatedEngagement: number;
-}
+import { ContentSuggestionRequest, ContentSuggestion } from '../types/content';
 
 export const aiService = {
   async generateContentSuggestions(
